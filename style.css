@@ -1,6 +1,7 @@
 
   body{
     margin:0;
+    background: linear-gradient(to bottom, #eee, rgba(222,112,6,0.2), #de7006);
   }
   a {
 

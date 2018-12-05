@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style>
+      body {
+        background: #16A085;
+        color: #fff;
+        font-family: 'Raleway', sans-serif;
+        margin: 0;
+        transition: all 500ms;
+        will-change: background;
+        min-height: 2000px;
+    }
+    section {
+      display: block;
+      width: 100%;
+      height: 100vh;
+      margin: 6em 0 0 0;
+    }
+        h1,h2 {
+      font-size: 5em;
+      font-weight: 900;
+      margin: 0 0.1em;
+    }
+
+    p {
+      width: 50%;
+      font-size: 1.1em;
+      margin: 0 2em;
+    }
+
+    .clear {
+      clear: both;
+    }
+
+    </style>
+    <script
+      src="https://code.jquery.com/color/jquery.color-2.1.2.js"
+      integrity="sha256-1Cn7TdfHiMcEbTuku97ZRSGt2b3SvZftEIn68UMgHC8="
+      crossorigin="anonymous">
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script
+  src="https://code.jquery.com/color/jquery.color-2.1.2.js"
+  integrity="sha256-1Cn7TdfHiMcEbTuku97ZRSGt2b3SvZftEIn68UMgHC8="
+  crossorigin="anonymous">
+
+  $(document).ready(function(){
+
+    //** notice we are including jquery and the color plugin at
+    //** http://code.jquery.com/color/jquery.color-2.1.0.js
+
+    var scroll_pos = 0;
+    var animation_begin_pos = 0; //where you want the animation to begin
+    var animation_end_pos = 1000; //where you want the animation to stop
+    var beginning_color = new $.Color( 'rgb(210,50,98)' ); //we can set this here, but it'd probably be better to get it from the CSS; for the example we're setting it here.
+    var ending_color = new $.Color( 'rgb(0,197,209)' ); ;//what color we want to use in the end
+    $(document).scroll(function() {
+        scroll_pos = $(this).scrollTop();
+        if(scroll_pos >= animation_begin_pos && scroll_pos <= animation_end_pos ) {
+           // console.log( 'scrolling and animating' );
+            //we want to calculate the relevant transitional rgb value
+            var percentScrolled = scroll_pos / ( animation_end_pos - animation_begin_pos );
+            var newRed = beginning_color.red() + ( ( ending_color.red() - beginning_color.red() ) * percentScrolled );
+            var newGreen = beginning_color.green() + ( ( ending_color.green() - beginning_color.green() ) * percentScrolled );
+            var newBlue = beginning_color.blue() + ( ( ending_color.blue() - beginning_color.blue() ) * percentScrolled );
+            var newColor = new $.Color( newRed, newGreen, newBlue );
+            //console.log( newColor.red(), newColor.green(), newColor.blue() );
+            $('body').animate({ backgroundColor: newColor }, 0);
+        } else if ( scroll_pos > animation_end_pos ) {
+             $('body').animate({ backgroundColor: ending_color }, 0);
+        } else if ( scroll_pos < animation_begin_pos ) {
+             $('body').animate({ backgroundColor: beginning_color }, 0);
+        } else { }
+    });
+});
+</script>
