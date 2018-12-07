@@ -71,14 +71,14 @@ body {
 
 <div id="expandable">Hello</div>
 
-
+<h1> </h1>
 <h1><div class="tagline" style="text-align:center">I'M</div></h1>
-
-<div style="text-align:center"><div class="tagline"><img src="thomas.jpg" width=500px; ></div></div>
-<div style="text-align:center"><div class="tagline"><img src="choi.png" ></div></div>
+<div  class="tagline" style="text-align:center"><h3>Mechanical<br>Engineer</h3></div>
 
 
-
+<div style="text-align:center"><div class="tagline"><img id='me' src="me1.png" width="300px" ></div></div>
+<div style="text-align:center"><div class="tagline"><img src="thomas.jpg" width=500px; style="margin-bottom:500px;" ></div></div>
+<h1><div class="tagline" style="text-align:center">Made Process</div></h1>
 </div>
 
 
@@ -356,6 +356,7 @@ window.addEventListener("scroll", function (event) {
     //document.body.style.background='#'+scroll*0xFFFFFF<<0).toString(16);
     if(scroll>700){
       document.body.style.background='white';
+
     }else{
       if(scroll%3==0){
         document.body.style.background='#'+(Math.random(scroll)*0xFFFFFF<<0).toString(16);
@@ -363,6 +364,31 @@ window.addEventListener("scroll", function (event) {
 
 
     }
+    var step =25;
+    var startp=1850;
+      if(scroll < startp) {
+       document.getElementById("me").src="me1.png";
+     } else if((scroll >= startp) &&(scroll < startp+step)) {
+       document.getElementById("me").src="me2.png";
+     }else if((scroll >= startp+step) &&(scroll < startp+step*2)) {
+       document.getElementById("me").src="me3.png";
+     }else if((scroll >= startp+step*2) &&(scroll < startp+step*3)) {
+       document.getElementById("me").src="me4.png";
+     }else if((scroll >= startp+step*3) &&(scroll < startp+step*4)) {
+       document.getElementById("me").src="me5.png";
+     }else if((scroll >= startp+step*4) &&(scroll < startp+step*5)) {
+       document.getElementById("me").src="me6.png";
+     }else if((scroll >= startp+step*5) &&(scroll < startp+step*6)) {
+       document.getElementById("me").src="me7.png";
+     }else if((scroll >= startp+step*6) &&(scroll < startp+step*7)) {
+       document.getElementById("me").src="me8.png";
+     }else if((scroll >= startp+step*7) &&(scroll < startp+step*8)) {
+       document.getElementById("me").src="me9.png";
+     }else if((scroll >= startp+step*8) &&(scroll < startp+step*9)) {
+       document.getElementById("me").src="me10.png";
+     }else if((scroll >= startp+step*9) &&(scroll < startp+step*10)) {
+       document.getElementById("me").src="me11.png";
+     }
 
     console.log(scroll)
 });
@@ -383,9 +409,8 @@ document.write('\
         }\
     </style>\
 ');
+
 </script>
-
-
 
 
 </body></html>
